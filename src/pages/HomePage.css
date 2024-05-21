@@ -7,5 +7,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 0px 50px;
+}
+
+.main-table-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 50px;
+}
+
+.main-table-container-table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 50px;
 }
