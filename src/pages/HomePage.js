@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import FooterComp from "../components/FooterComp"
 import { Table } from "antd"
 import data from "../data/salaries"
+import LineChart from "../components/LineChart"
 
 const HomePage = () => {
   const [selectedYear, setSelectedYear] = useState(null)
@@ -13,8 +14,6 @@ const HomePage = () => {
     salary: item.salary_in_usd,
     title: item.job_title,
   }))
-
-  console.log(filteredData)
 
   const processData = (data) => {
     const yearData = {}
@@ -54,7 +53,6 @@ const HomePage = () => {
 
   const processJobData = (data, year) => {
     const jobData = data.filter((item) => item.year == year)
-    console.log(jobData)
     const jobResult = {}
 
     jobData.forEach((item) => {
@@ -66,21 +64,16 @@ const HomePage = () => {
     })
 
     const result = Object.keys(jobResult).map((jobTitle) => {
-      console.log(jobTitle)
       return {
         jobTitle,
         count: jobResult[jobTitle],
       }
     })
 
-    console.log(result)
-
     return result
   }
 
   const jobData = selectedYear ? processJobData(filteredData, selectedYear) : []
-
-  console.log(jobData)
 
   const dataColumns = [
     {
@@ -137,6 +130,9 @@ const HomePage = () => {
           </div>
           <div>
             <h2>Line Graph</h2>
+            <div className="line-chart-container">
+              <LineChart />
+            </div>
           </div>
         </div>
 
